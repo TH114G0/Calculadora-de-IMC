@@ -1,6 +1,6 @@
 package br.com.alura.model;
 
-public class Pessoa {
+public class PessoaModel {
     private String nome;
     private int idade;
     private double altura;
