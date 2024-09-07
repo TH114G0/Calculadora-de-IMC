@@ -1,11 +1,10 @@
 package br.com.alura;
 
-import br.com.alura.model.Pessoa;
-import br.com.alura.service.CalcularIMC;
+import br.com.alura.model.PessoaModel;
+import br.com.alura.service.CalcularIMCService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -40,20 +39,20 @@ public class Main {
     }
 
     private static void preencherCampos(Scanner scanner) {
-        Pessoa pessoa = new Pessoa();
+        PessoaModel pessoaModel = new PessoaModel();
         while (true) {
             try {
                 System.out.print("Informe o seu nome: ");
-                pessoa.setNome(scanner.nextLine());
+                pessoaModel.setNome(scanner.nextLine());
 
                 System.out.print("\nInforme o sua idade: ");
-                pessoa.setIdade(scanner.nextInt());
+                pessoaModel.setIdade(scanner.nextInt());
 
                 System.out.print("\nInforme o sua altura: ");
-                pessoa.setAltura(scanner.nextDouble());
+                pessoaModel.setAltura(scanner.nextDouble());
 
                 System.out.print("\nInforme o seu peso: ");
-                pessoa.setPeso(scanner.nextDouble());
+                pessoaModel.setPeso(scanner.nextDouble());
                 break;
             } catch (InputMismatchException e) {
                 System.err.println("Entrada inválida! Por favor, insira um número.");
@@ -63,7 +62,7 @@ public class Main {
                 scanner.nextLine();
             }
         }
-        calcularImc(CalcularIMC.calcular(pessoa));
+        calcularImc(CalcularIMCService.calcular(pessoaModel));
     }
 
     public static void calcularImc(double resultado) {
